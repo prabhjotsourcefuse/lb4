@@ -1,4 +1,4 @@
-import {Lb4TrainingApplication} from '../..';
+import {LoopbackApplication} from '../..';
 import {
   createRestAppClient,
   givenHttpServerConfig,
@@ -14,7 +14,7 @@ export async function setupApplication(): Promise<AppWithClient> {
     // port: +process.env.PORT,
   });
 
-  const app = new Lb4TrainingApplication({
+  const app = new LoopbackApplication({
     rest: restConfig,
   });
 
@@ -27,6 +27,6 @@ export async function setupApplication(): Promise<AppWithClient> {
 }
 
 export interface AppWithClient {
-  app: Lb4TrainingApplication;
+  app: LoopbackApplication;
   client: Client;
 }

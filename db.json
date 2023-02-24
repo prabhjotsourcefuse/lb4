@@ -1,0 +1,12 @@
+{
+  "ids": {
+    "User": 4
+  },
+  "models": {
+    "User": {
+      "1": "{\"first_name\":\"string\",\"middle_name\":\"string\",\"last_name\":\"string\",\"email\":\"string\",\"phone_number\":0,\"role\":\"string\",\"address\":\"string\",\"created_on\":\"2023-02-24T19:04:24.867Z\",\"modified_on\":\"2023-02-24T19:04:24.867Z\",\"id\":1}",
+      "2": "{\"first_name\":\"string\",\"middle_name\":\"string\",\"last_name\":\"string\",\"email\":\"string\",\"phone_number\":0,\"role\":\"string\",\"address\":\"string\",\"created_on\":\"2023-02-24T19:04:24.867Z\",\"modified_on\":\"2023-02-24T19:04:24.867Z\",\"id\":2}",
+      "3": "{\"first_name\":\"string\",\"middle_name\":\"string\",\"last_name\":\"string\",\"email\":\"string\",\"phone_number\":0,\"role\":\"string\",\"address\":\"string\",\"created_on\":\"2023-02-24T19:04:24.867Z\",\"modified_on\":\"2023-02-24T19:04:24.867Z\",\"id\":3}"
+    }
+  }
+}
