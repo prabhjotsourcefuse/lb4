@@ -1,5 +1,5 @@
 import {ApplicationConfig} from '@loopback/core';
-import {Lb4TrainingApplication} from './application';
+import {PostgresDbTaskApplication} from './application';
 
 /**
  * Export the OpenAPI spec from the application
@@ -12,7 +12,7 @@ async function exportOpenApiSpec(): Promise<void> {
     },
   };
   const outFile = process.argv[2] ?? '';
-  const app = new Lb4TrainingApplication(config);
+  const app = new PostgresDbTaskApplication(config);
   await app.boot();
   await app.exportOpenApiSpec(outFile);
 }

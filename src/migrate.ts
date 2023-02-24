@@ -1,10 +1,10 @@
-import {Lb4TrainingApplication} from './application';
+import {PostgresDbTaskApplication} from './application';
 
 export async function migrate(args: string[]) {
   const existingSchema = args.includes('--rebuild') ? 'drop' : 'alter';
   console.log('Migrating schemas (%s existing schema)', existingSchema);
 
-  const app = new Lb4TrainingApplication();
+  const app = new PostgresDbTaskApplication();
   await app.boot();
   await app.migrateSchema({existingSchema});
 
