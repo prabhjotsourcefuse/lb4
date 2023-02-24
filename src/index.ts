@@ -1,9 +1,9 @@
-import {ApplicationConfig, Lb4TrainingApplication} from './application';
+import {ApplicationConfig, PostgresDbTaskApplication} from './application';
 
 export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
-  const app = new Lb4TrainingApplication(options);
+  const app = new PostgresDbTaskApplication(options);
   await app.boot();
   await app.start();
 
