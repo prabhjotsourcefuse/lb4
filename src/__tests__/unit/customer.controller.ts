@@ -78,6 +78,41 @@ describe('Customer controller unit test', () => {
     });
   });
 
+  describe('customer by id', () => {
+    it('find by id', async () => {
+      const controller = new CustomerController(repository);
+      const testData = givenCustomerData();
+
+      repository.stubs.findById.resolves(testData).withArgs(1);
+
+      const data = await controller.findById(1);
+      expect(data).to.be.deepEqual(testData);
+    });
+
+    it("doesn't exist with id", async () => {
+      const controller = new CustomerController(repository);
+      repository.stubs.findById.rejects(new HttpErrors[404]).withArgs(1);
+
+      try {
+        const details = await controller.findById(1);
+        expect(details).to.be.undefined();
+      } catch (e) {
+        expect(e).to.be.instanceOf(HttpErrors[404]);
+      }
+    });
+  });
+
+  describe('create customer', () => {
+    it('create customer', async () => {
+      const controller = new CustomerController(repository);
+      const customerData = givenCustomerData();
+      repository.stubs.create.resolves(customerData).withArgs(customerData);
+
+      const data = await controller.create(customerData);
+      expect(data).to.be.deepEqual(customerData);
+    });
+  });
+
   function givenStubbedRepository() {
     repository = createStubInstance(CustomerRepository);
   }
