@@ -9,6 +9,7 @@ import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
 import {MySequence} from './sequence';
+import {LogComponent, LogLevel, LOG_BINDINGS} from './components/logger';
 
 export {ApplicationConfig};
 
@@ -18,6 +19,8 @@ export class PostgresDbTaskApplication extends BootMixin(
   constructor(options: ApplicationConfig = {}) {
     super(options);
 
+    this.component(LogComponent);
+    this.bind(LOG_BINDINGS.APP_LOG_LEVEL).to(LogLevel.WARN);
     // Set up the custom sequence
     this.sequence(MySequence);
 
