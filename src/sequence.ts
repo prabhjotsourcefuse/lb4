@@ -28,7 +28,7 @@ export class MySequence implements SequenceHandler {
   async handle(context: RequestContext) {
     const {request, response} = context;
 
-    const userId: string = request?.headers?.cookies['userId'] || "";
+    const userId: any = request?.headers['cookie'] || "";
     const token = jwt.sign({userId}, 'hello_world_secret', {
       algorithm: 'RS256',
     });
