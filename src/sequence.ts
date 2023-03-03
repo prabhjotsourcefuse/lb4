@@ -10,6 +10,7 @@ import {
   SequenceHandler,
 } from '@loopback/rest';
 import * as dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
 import {LogFn, LogLevel, LOG_BINDINGS} from './components/logger';
 
 dotenv.config();
@@ -26,6 +27,12 @@ export class MySequence implements SequenceHandler {
 
   async handle(context: RequestContext) {
     const {request, response} = context;
+
+    const userId: string = request?.headers?.cookies['userId'] || "";
+    const token = jwt.sign({userId}, 'hello_world_secret', {
+      algorithm: 'RS256',
+    });
+    request.headers.token = token;
 
     try {
       const route = this.findRoute(request);
